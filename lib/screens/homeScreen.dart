@@ -56,10 +56,11 @@ class _myHomeScreenState extends State<myHomeScreen> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.white,
         onPressed: (){
           Navigator.push(context, MaterialPageRoute(builder: (context) => singleNoteScreen(),));
         },
-        child: Icon(Icons.add,size:20 ,),
+        child: Icon(Icons.add,size:28,color: Colors.black,),
       ),
     );
   }
