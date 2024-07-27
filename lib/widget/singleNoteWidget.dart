@@ -1,28 +1,63 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mynoteapp/screens/updateNoteScreen.dart';
 
 class singleNoteWidget extends StatelessWidget {
-  const singleNoteWidget({super.key});
+  final String title;
+  final String note;
+  final DateTime dateTime;
+  final String id;
+  const singleNoteWidget(
+      {super.key,
+      required this.title,
+      required this.note,
+      required this.dateTime,
+      required this.id});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(5),
-      child: Container(
-        height: 200,
-        width: 200,
-        decoration: BoxDecoration(
-          color: Colors.black38,
-          border: Border.all(color: Colors.white12),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text("My note title",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w800,fontSize: 18),),
-            Text("My note description",style: TextStyle(color: Colors.white),),
-          ],
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) =>
+                updateNoteScreen(
+                    title: title,
+                    note: note,
+                    dateTime: dateTime,
+                    id: id,
+                ),
+          ),
+        );
+      },
+      child: Padding(
+        padding: const EdgeInsets.all(5),
+        child: Container(
+          height: 200,
+          width: 200,
+          decoration: BoxDecoration(
+            color: Colors.black38,
+            border: Border.all(color: Colors.white12),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "${title}",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w800,
+                    fontSize: 18),
+              ),
+              Text(
+                note,
+                style: TextStyle(color: Colors.white),
+              ),
+            ],
+          ),
         ),
       ),
     );
