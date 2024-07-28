@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mynoteapp/firebase_auth/firbase_auth.dart';
 import 'package:mynoteapp/screens/addNoteScreen.dart';
+
 
 
 import '../controlers/note_controller.dart';
@@ -12,6 +14,7 @@ class myHomeScreen extends StatefulWidget {
   @override
   State<myHomeScreen> createState() => _myHomeScreenState();
 }
+
 
 class _myHomeScreenState extends State<myHomeScreen> {
 
@@ -46,6 +49,7 @@ class _myHomeScreenState extends State<myHomeScreen> {
               return Center(child: CircularProgressIndicator());
             } else {
               return GridView.builder(
+                primary: false,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2, // number of items in each row
                 ),
@@ -95,8 +99,9 @@ class _myHomeScreenState extends State<myHomeScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      bottomNavigationBar: Container(
+        color: Colors.black,
+        padding: EdgeInsets.symmetric(horizontal: 10,vertical: 20),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -132,6 +137,7 @@ class _myHomeScreenState extends State<myHomeScreen> {
           ],
         ),
       ),
+
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.white,
         onPressed: () {
