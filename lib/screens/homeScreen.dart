@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mynoteapp/firebase_auth/firbase_auth.dart';
 import 'package:mynoteapp/screens/addNoteScreen.dart';
 import 'package:mynoteapp/screens/updateNoteScreen.dart';
 import 'package:mynoteapp/utils/colors.dart';
@@ -14,6 +15,7 @@ class myHomeScreen extends StatefulWidget {
 }
 
 class _myHomeScreenState extends State<myHomeScreen> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,6 +28,15 @@ class _myHomeScreenState extends State<myHomeScreen> {
         centerTitle: true,
         backgroundColor: Colors.white70,
         elevation: 0,
+        actions: [
+          GestureDetector(
+            child: Icon(Icons.login_outlined),
+            onTap: (){
+              firebase_auth.log_out_auth(context);
+            },
+          ),
+          SizedBox(width: 20,)
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),

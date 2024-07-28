@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mynoteapp/screens/check_user.dart';
 import 'package:mynoteapp/screens/homeScreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:mynoteapp/screens/login_Screen.dart';

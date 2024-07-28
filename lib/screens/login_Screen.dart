@@ -1,7 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:mynoteapp/firebase_auth/firbase_auth.dart';
 import 'package:mynoteapp/screens/homeScreen.dart';
+import 'package:mynoteapp/screens/resset_password_screen.dart';
 import 'package:mynoteapp/screens/signup_Screen.dart';
 
 class log_in_screen extends StatefulWidget {
@@ -15,24 +17,7 @@ class _log_in_screenState extends State<log_in_screen> {
   final TextEditingController _email_controler=TextEditingController();
   final TextEditingController _password_controler=TextEditingController();
 
-  Future sign_in_auth(String email,String password)async{
-    if(email=="" && password==""){
-      print("email and password null");
-    }
-    else if (email=="" || password==""){
-      print("email and password null");
-    }
-    else{
-      UserCredential? usercredential;
-      try{
-        usercredential=await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password).then((valu){
-          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => myHomeScreen(),));
-        });
-      }on FirebaseException catch(ex){
-        print("Exception is ${ex}");
-      }
-    }
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -97,7 +82,7 @@ class _log_in_screenState extends State<log_in_screen> {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: (){
-                    sign_in_auth(_email_controler.text, _password_controler.text);
+                    firebase_auth.sign_in_auth(context,_email_controler.text, _password_controler.text);
                   },
                   child: Text("Login",
                     style: TextStyle(
@@ -125,7 +110,19 @@ class _log_in_screenState extends State<log_in_screen> {
                     ),
                   )
                 ],
-              )
+              ),
+              SizedBox(height: 20,),
+              GestureDetector(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => reset_password_screen(),));
+                },
+                child: Text(
+                  "Forgot Password",
+                  style: TextStyle(
+                      color: Colors.blue,
+                  ),
+                ),
+              ),
             ],
           ),
         ),
