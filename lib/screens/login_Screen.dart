@@ -5,6 +5,7 @@ import 'package:mynoteapp/firebase_auth/firbase_auth.dart';
 import 'package:mynoteapp/screens/homeScreen.dart';
 import 'package:mynoteapp/screens/resset_password_screen.dart';
 import 'package:mynoteapp/screens/signup_Screen.dart';
+import 'package:toast/toast.dart';
 
 class log_in_screen extends StatefulWidget {
    log_in_screen({super.key});
@@ -105,7 +106,6 @@ class _log_in_screenState extends State<log_in_screen> {
                       "Signup",
                       style: TextStyle(
                           color: Colors.blue,
-                          decoration: TextDecoration.underline,
                       ),
                     ),
                   )

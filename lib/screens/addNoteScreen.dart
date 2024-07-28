@@ -29,6 +29,13 @@ class singleNoteScreen extends StatelessWidget {
             width: 20,
           )
         ],
+        automaticallyImplyLeading: false,
+        leading: GestureDetector(
+          child: Icon(Icons.arrow_back_ios_new_outlined),
+          onTap: (){
+            Navigator.pop(context);
+          },
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),

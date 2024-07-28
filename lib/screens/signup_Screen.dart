@@ -104,7 +104,6 @@ class _sign_up_screenState extends State<sign_up_screen> {
                       "Login",
                       style: TextStyle(
                           color: Colors.blue,
-                          decoration: TextDecoration.underline,
                       ),
                     ),
                   )

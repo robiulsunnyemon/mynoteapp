@@ -3,6 +3,7 @@ import 'package:mynoteapp/controlers/note_controller.dart';
 import 'package:mynoteapp/model/note_model.dart';
 import 'package:mynoteapp/screens/homeScreen.dart';
 import 'package:mynoteapp/utils/colors.dart';
+import 'package:mynoteapp/widget/show_model_sheet_widget.dart';
 
 class updateNoteScreen extends StatelessWidget {
   final String title;
@@ -38,6 +39,13 @@ class updateNoteScreen extends StatelessWidget {
             width: 20,
           )
         ],
+        automaticallyImplyLeading: false,
+        leading: GestureDetector(
+          child: Icon(Icons.arrow_back_ios_new_outlined),
+          onTap: (){
+            Navigator.pop(context);
+          },
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -126,91 +134,16 @@ class updateNoteScreen extends StatelessWidget {
                   size: 25,
                 ),
                 onTap: () {
-                  // showDialog(
-                  //   context: context,
-                  //   builder: (context) {
-                  //     return AlertDialog(
-                  //       title: Column(
-                  //         children: [
-                  //           ListTile(
-                  //             title: GestureDetector(
-                  //               child: Text("Delete"),
-                  //               onTap: (){
-                  //                 note_controler.delete_note(id);
-                  //                 Navigator.push(context, MaterialPageRoute(builder: (context) => myHomeScreen(),));
-                  //               },
-                  //             ),
-                  //             leading: Icon(Icons.delete),
-                  //           ),
-                  //           ListTile(
-                  //             title: Text("Make a copy"),
-                  //             leading: Icon(Icons.copy),
-                  //           ),
-                  //           ListTile(
-                  //             title: Text("Send"),
-                  //             leading: Icon(Icons.share),
-                  //           ),
-                  //           ListTile(
-                  //             title: Text("Collaborator"),
-                  //             leading: Icon(Icons.person),
-                  //           ),
-                  //           ListTile(
-                  //             title: Text("Labels"),
-                  //             leading: Icon(Icons.label),
-                  //           ),
-                  //           ListTile(
-                  //             title: Text("Helps & feedback"),
-                  //             leading: Icon(Icons.help_outline),
-                  //           ),
-                  //         ],
-                  //       ),
-                  //       backgroundColor: Colors.white,
-                  //       alignment: Alignment.bottomLeft,
-                  //     );
-                  //   },
-                  //
-                  // );
 
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                        content: Column(
-                          children: [
-                              ListTile(
-                                title: GestureDetector(
-                                    child: Text("Delete",style: TextStyle(color: appColors.snackber_color,),),
-                                  onTap: (){
-                                      note_controler.delete_note(id);
-                                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => myHomeScreen(),),);
-                                  },
-                                ),
-                                leading: Icon(Icons.delete_outline,color: appColors.snackber_color,),
-                              ),
-                            ListTile(
-                                title: Text("Make a copy",style: TextStyle(color: appColors.snackber_color),),
-                                leading: Icon(Icons.copy,color: appColors.snackber_color,),
-                              ),
-                              ListTile(
-                                title: Text("Send",style: TextStyle(color: appColors.snackber_color),),
-                                leading: Icon(Icons.share,color: appColors.snackber_color,),
-                              ),
-                              ListTile(
-                                title: Text("Collaborator",style: TextStyle(color: appColors.snackber_color),),
-                                leading: Icon(Icons.person,color: appColors.snackber_color,),
-                              ),
-                              ListTile(
-                                title: Text("Labels",style: TextStyle(color: appColors.snackber_color),),
-                                leading: Icon(Icons.label,color: appColors.snackber_color,),
-                              ),
-                              ListTile(
-                                title: Text("Helps & feedback",style: TextStyle(color: appColors.snackber_color),),
-                                leading: Icon(Icons.help_outline,color: appColors.snackber_color,),
-                              ),
-                          ],
-
-                        ),
-                    )
+                  showModalBottomSheet(context: context, builder: (context) {
+                        return  Container(
+                          height: 336,
+                          width: double.infinity,
+                          color: Colors.black,
+                          child: show_model_sheet_widget(id: id,),
+                        );
+                      },
                   );
-
                 },
               ),
               SizedBox(
