@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mynoteapp/screens/homeScreen.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:mynoteapp/screens/login_Screen.dart';
 import 'firebase_options.dart';
 
 void main() async{
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
       title: 'My Note App',
       theme: ThemeData(
       ),
-      home: myHomeScreen(),
+      home: log_in_screen(),
       debugShowCheckedModeBanner: false,
     );
   }
