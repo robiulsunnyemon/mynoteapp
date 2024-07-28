@@ -36,38 +36,6 @@ class _myHomeScreenState extends State<myHomeScreen> {
           ),
           SizedBox(width: 20,)
         ],
-        //automaticallyImplyLeading: false,
-        // leading: GestureDetector(
-        //     child: Icon(Icons.menu_outlined),
-        //   onTap: (){
-        //     print("ontap");
-        //     // Drawer(
-        //     //   child: Column(
-        //     //     children: [
-        //     //       ListTile(
-        //     //         title: Text("N O T E S"),
-        //     //         leading: GestureDetector(
-        //     //           child: Icon(Icons.home_filled),
-        //     //           onTap: (){
-        //     //             Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => myHomeScreen(),));
-        //     //           },
-        //     //         ),
-        //     //       ),
-        //     //       SizedBox(height: 15,),
-        //     //       ListTile(
-        //     //         title: Text("P R O F I L E"),
-        //     //         leading: Icon(Icons.person),
-        //     //       ),
-        //     //       SizedBox(height: 15,),
-        //     //       ListTile(
-        //     //         title: Text("L O G O U T"),
-        //     //         leading: Icon(Icons.logout_outlined),
-        //     //       ),
-        //     //     ],
-        //     //   ),
-        //     // );
-        //   },
-        // ),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),

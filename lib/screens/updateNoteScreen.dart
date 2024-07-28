@@ -26,15 +26,15 @@ class updateNoteScreen extends StatelessWidget {
       backgroundColor: appColors.scafold_background,
       appBar: AppBar(
         actions: [
-          Icon(Icons.notifications_active),
+          Icon(Icons.push_pin_outlined),
           SizedBox(
             width: 10,
           ),
-          Icon(Icons.notifications_active),
+          Icon(Icons.notifications_active_outlined),
           SizedBox(
             width: 10,
           ),
-          Icon(Icons.notifications_active),
+          Icon(Icons.archive_outlined),
           SizedBox(
             width: 20,
           )
@@ -140,7 +140,7 @@ class updateNoteScreen extends StatelessWidget {
                           height: 336,
                           width: double.infinity,
                           color: Colors.black,
-                          child: show_model_sheet_widget(id: id,),
+                          child: show_bottom_model_sheet_widget(id: id,title: title_TEcontroller.text,note: note_TEcontroller.text,),
                         );
                       },
                   );

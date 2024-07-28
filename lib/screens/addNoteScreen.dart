@@ -16,15 +16,15 @@ class singleNoteScreen extends StatelessWidget {
       backgroundColor: appColors.scafold_background,
       appBar: AppBar(
         actions: [
-          Icon(Icons.notifications_active),
+          Icon(Icons.push_pin_outlined),
           SizedBox(
             width: 10,
           ),
-          Icon(Icons.notifications_active),
+          Icon(Icons.notifications_active_outlined),
           SizedBox(
             width: 10,
           ),
-          Icon(Icons.notifications_active),
+          Icon(Icons.archive_outlined),
           SizedBox(
             width: 20,
           )

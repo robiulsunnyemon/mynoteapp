@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:mynoteapp/controlers/note_controller.dart';
+import 'package:mynoteapp/model/note_model.dart';
 
 import '../screens/homeScreen.dart';
 import '../utils/colors.dart';
 
-class show_model_sheet_widget extends StatelessWidget {
+class show_bottom_model_sheet_widget extends StatelessWidget {
   final String id;
-  const show_model_sheet_widget({super.key, required this.id});
+  final String? title;
+  final String? note;
+  const show_bottom_model_sheet_widget({super.key, required this.id, this.title, this.note});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +26,13 @@ class show_model_sheet_widget extends StatelessWidget {
           leading: Icon(Icons.delete_outline,color: appColors.snackber_color,),
         ),
         ListTile(
-          title: Text("Make a copy",style: TextStyle(color: appColors.snackber_color),),
+          title: GestureDetector(
+              child: Text("Make a copy",style: TextStyle(color: appColors.snackber_color),),
+              onTap: (){
+                note_controler.add_note(note_model(title: title!, note: note!, dateTime:DateTime.now()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => myHomeScreen(),));
+              },
+          ),
           leading: Icon(Icons.copy,color: appColors.snackber_color,),
         ),
         ListTile(
