@@ -1,10 +1,7 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:mynoteapp/firebase_auth/firbase_auth.dart';
 
-import 'homeScreen.dart';
-import 'login_Screen.dart';
 
 class reset_password_screen extends StatefulWidget {
   reset_password_screen({super.key});

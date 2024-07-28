@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mynoteapp/firebase_auth/firbase_auth.dart';
 import 'package:mynoteapp/screens/addNoteScreen.dart';
-import 'package:mynoteapp/screens/updateNoteScreen.dart';
-import 'package:mynoteapp/utils/colors.dart';
+
 
 import '../controlers/note_controller.dart';
 import '../widget/singleNoteWidget.dart';
@@ -37,6 +36,38 @@ class _myHomeScreenState extends State<myHomeScreen> {
           ),
           SizedBox(width: 20,)
         ],
+        //automaticallyImplyLeading: false,
+        // leading: GestureDetector(
+        //     child: Icon(Icons.menu_outlined),
+        //   onTap: (){
+        //     print("ontap");
+        //     // Drawer(
+        //     //   child: Column(
+        //     //     children: [
+        //     //       ListTile(
+        //     //         title: Text("N O T E S"),
+        //     //         leading: GestureDetector(
+        //     //           child: Icon(Icons.home_filled),
+        //     //           onTap: (){
+        //     //             Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => myHomeScreen(),));
+        //     //           },
+        //     //         ),
+        //     //       ),
+        //     //       SizedBox(height: 15,),
+        //     //       ListTile(
+        //     //         title: Text("P R O F I L E"),
+        //     //         leading: Icon(Icons.person),
+        //     //       ),
+        //     //       SizedBox(height: 15,),
+        //     //       ListTile(
+        //     //         title: Text("L O G O U T"),
+        //     //         leading: Icon(Icons.logout_outlined),
+        //     //       ),
+        //     //     ],
+        //     //   ),
+        //     // );
+        //   },
+        // ),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
@@ -64,6 +95,36 @@ class _myHomeScreenState extends State<myHomeScreen> {
               );
             }
           },
+        ),
+      ),
+      drawer: Drawer(
+        child: Column(
+          children: [
+            DrawerHeader(
+                child: Container(),
+              decoration: BoxDecoration(
+              )
+            ),
+            ListTile(
+              title: Text("N O T E S"),
+              leading: GestureDetector(
+                  child: Icon(Icons.home_filled),
+                  onTap: (){
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => myHomeScreen(),));
+                  },
+              ),
+            ),
+            SizedBox(height: 15,),
+            ListTile(
+              title: Text("P R O F I L E"),
+              leading: Icon(Icons.person),
+            ),
+            SizedBox(height: 15,),
+            ListTile(
+              title: Text("L O G O U T"),
+              leading: Icon(Icons.logout_outlined),
+            ),
+          ],
         ),
       ),
       bottomNavigationBar: Padding(
@@ -121,3 +182,4 @@ class _myHomeScreenState extends State<myHomeScreen> {
     );
   }
 }
+

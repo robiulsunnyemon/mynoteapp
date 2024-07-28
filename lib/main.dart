@@ -1,6 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mynoteapp/screens/check_user.dart';
 import 'package:mynoteapp/screens/homeScreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:mynoteapp/screens/login_Screen.dart';
@@ -21,11 +21,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final user = FirebaseAuth.instance.currentUser;
     return GetMaterialApp(
       title: 'My Note App',
       theme: ThemeData(
       ),
-      home: log_in_screen(),
+      home:user==null?log_in_screen():myHomeScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
