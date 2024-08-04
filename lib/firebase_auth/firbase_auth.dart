@@ -1,12 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mynoteapp/screens/login_Screen.dart';
-import 'package:mynoteapp/screens/resset_password_screen.dart';
 import 'package:mynoteapp/widget/ui_helper.dart';
 
 import '../screens/homeScreen.dart';
 
 class firebase_auth {
+  static final firebase=FirebaseAuth.instance;
   static sign_in_auth(BuildContext context, String email, String password) async {
     if (email == "" && password == "") {
       ui_helper.show_alart_bottom_sheet(context, "Email and Password Can't be Null");
@@ -15,9 +15,7 @@ class firebase_auth {
     } else {
       UserCredential? usercredential;
       try {
-        usercredential = await FirebaseAuth.instance
-            .signInWithEmailAndPassword(email: email, password: password)
-            .then((valu) {
+        usercredential = await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password).then((valu) {
           Navigator.pushReplacement(
               context,
               MaterialPageRoute(
@@ -42,10 +40,11 @@ class firebase_auth {
         usercredential = await FirebaseAuth.instance
             .createUserWithEmailAndPassword(email: email, password: password)
             .then((value) {
+              firebase.signOut();
           Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (context) => myHomeScreen(),
+                builder: (context) => log_in_screen(),
               ));
         });
       } on FirebaseException catch (ex) {

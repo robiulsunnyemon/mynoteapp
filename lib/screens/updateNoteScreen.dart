@@ -10,17 +10,18 @@ class updateNoteScreen extends StatelessWidget {
   final String note;
   final DateTime dateTime;
   final String id;
+  final user_id;
   updateNoteScreen(
       {super.key,
       required this.title,
       required this.note,
       required this.dateTime,
+      required this.user_id,
       required this.id});
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController title_TEcontroller =
-        TextEditingController(text: title);
+    TextEditingController title_TEcontroller = TextEditingController(text: title);
     TextEditingController note_TEcontroller = TextEditingController(text: note);
     return Scaffold(
       backgroundColor: appColors.scafold_background,
@@ -140,7 +141,7 @@ class updateNoteScreen extends StatelessWidget {
                           height: 336,
                           width: double.infinity,
                           color: Colors.black,
-                          child: show_bottom_model_sheet_widget(id: id,title: title_TEcontroller.text,note: note_TEcontroller.text,),
+                          child: show_bottom_model_sheet_widget(id: id,title: title_TEcontroller.text,note: note_TEcontroller.text,user_id: user_id,),
                         );
                       },
                   );
@@ -157,20 +158,15 @@ class updateNoteScreen extends StatelessWidget {
                 ),
                 onTap: () {
                   note_controler.update_note(
-                    id,
-                    note_model(
+                      id, note_model(
                       title: title_TEcontroller.text,
                       note: note_TEcontroller.text,
-                      dateTime: DateTime.now(),
-                    ),
+                      dateTime:DateTime.now(),
+                      user_id: user_id,
+                   ),
                   );
 
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => myHomeScreen(),
-                    ),
-                  );
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => myHomeScreen(),));
                 },
               ),
               SizedBox(

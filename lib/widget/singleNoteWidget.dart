@@ -7,11 +7,13 @@ class singleNoteWidget extends StatelessWidget {
   final String note;
   final DateTime dateTime;
   final String id;
+  final  user_id;
   const singleNoteWidget(
       {super.key,
       required this.title,
       required this.note,
       required this.dateTime,
+      required this.user_id,
       required this.id});
 
   @override
@@ -26,6 +28,7 @@ class singleNoteWidget extends StatelessWidget {
                     title: title,
                     note: note,
                     dateTime: dateTime,
+                    user_id: user_id,
                     id: id,
                 ),
           ),

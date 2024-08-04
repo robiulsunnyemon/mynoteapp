@@ -1,15 +1,28 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mynoteapp/controlers/note_controller.dart';
 import 'package:mynoteapp/model/note_model.dart';
 import 'package:mynoteapp/screens/homeScreen.dart';
 import 'package:mynoteapp/utils/colors.dart';
 
-class singleNoteScreen extends StatelessWidget {
+class singleNoteScreen extends StatefulWidget {
   singleNoteScreen({super.key});
 
   @override
+  State<singleNoteScreen> createState() => _singleNoteScreenState();
+}
+
+class _singleNoteScreenState extends State<singleNoteScreen> {
+  @override
   TextEditingController title_TEcontroller = TextEditingController();
   TextEditingController note_TEcontroller = TextEditingController();
+  @override
+  void initState() {
+    user_id;
+    super.initState();
+  }
+  final  user_id=FirebaseAuth.instance.currentUser?.uid;
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -131,17 +144,17 @@ class singleNoteScreen extends StatelessWidget {
                   color: Colors.white60,
                   size: 25,
                 ),
-                onTap: () {
-                  note_controler.add_note(
-                    note_model(
-                        title: title_TEcontroller.text,
-                        note: note_TEcontroller.text,
-                        dateTime: DateTime.now(),
-                    ),
+                onTap: ()  async {
+                  await note_controler.add_note(
+                      note_model(
+                          title: title_TEcontroller.text,
+                          note: note_TEcontroller.text,
+                          dateTime: DateTime.now(),
+                          user_id: user_id,
+                      ),
                   );
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => myHomeScreen(),));
-                  
-                },
+                  Navigator.pop(context);
+                }
               ),
               SizedBox(
                 width: 5,

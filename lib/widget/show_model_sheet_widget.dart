@@ -9,7 +9,8 @@ class show_bottom_model_sheet_widget extends StatelessWidget {
   final String id;
   final String? title;
   final String? note;
-  const show_bottom_model_sheet_widget({super.key, required this.id, this.title, this.note});
+  final String? user_id;
+  const show_bottom_model_sheet_widget({super.key, required this.id, this.title, this.note,this.user_id});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,7 @@ class show_bottom_model_sheet_widget extends StatelessWidget {
           title: GestureDetector(
               child: Text("Make a copy",style: TextStyle(color: appColors.snackber_color),),
               onTap: (){
-                note_controler.add_note(note_model(title: title!, note: note!, dateTime:DateTime.now()));
+                note_controler.add_note(note_model(title: title!, note: note!, dateTime: DateTime.now(), user_id: user_id,));
                 Navigator.push(context, MaterialPageRoute(builder: (context) => myHomeScreen(),));
               },
           ),

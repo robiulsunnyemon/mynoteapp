@@ -1,12 +1,12 @@
-import 'package:flutter/cupertino.dart';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:mynoteapp/firebase_auth/firbase_auth.dart';
-import 'package:mynoteapp/screens/addNoteScreen.dart';
-
-
 
 import '../controlers/note_controller.dart';
+import '../firebase_auth/firbase_auth.dart';
 import '../widget/singleNoteWidget.dart';
+import 'addNoteScreen.dart';
 
 class myHomeScreen extends StatefulWidget {
   const myHomeScreen({super.key});
@@ -19,7 +19,15 @@ class myHomeScreen extends StatefulWidget {
 class _myHomeScreenState extends State<myHomeScreen> {
 
   @override
+  void initState() {
+    user_id;
+    super.initState();
+  }
+
+  final user_id=FirebaseAuth.instance.currentUser!.uid;
+  @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: Colors.white12,
       appBar: AppBar(
@@ -43,7 +51,7 @@ class _myHomeScreenState extends State<myHomeScreen> {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         child: StreamBuilder(
-          stream: note_controler.firebase.collection('note').orderBy("DateTime",descending: true).snapshots(),
+          stream: FirebaseFirestore.instance.collection(note_controler.collection_name).where("uid",isEqualTo:user_id).orderBy("DateTime",descending: true).snapshots(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return Center(child: CircularProgressIndicator());
@@ -58,9 +66,10 @@ class _myHomeScreenState extends State<myHomeScreen> {
                 itemBuilder: (context, index) {
                   final data=snapshot.data!.docs[index];
                   return singleNoteWidget(
-                    title: snapshot.data!.docs[index].get("Title"),
+                    title: data["Title"],
                     note: data["note"],
-                    dateTime: DateTime.now(),
+                    dateTime: DateTime.now()!,
+                    user_id: user_id,
                     id: data.id
                   );
                 },
@@ -137,7 +146,6 @@ class _myHomeScreenState extends State<myHomeScreen> {
           ],
         ),
       ),
-
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.white,
         onPressed: () {
