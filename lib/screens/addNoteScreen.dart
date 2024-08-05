@@ -6,8 +6,11 @@ import 'package:mynoteapp/model/note_model.dart';
 import 'package:mynoteapp/screens/homeScreen.dart';
 import 'package:mynoteapp/utils/colors.dart';
 
+import '../widget/show_model_sheet_widget.dart';
+
 class singleNoteScreen extends StatefulWidget {
-  singleNoteScreen({super.key});
+  final String? id;
+  singleNoteScreen({super.key, this.id});
 
   @override
   State<singleNoteScreen> createState() => _singleNoteScreenState();
@@ -28,6 +31,7 @@ class _singleNoteScreenState extends State<singleNoteScreen> {
     return Scaffold(
       backgroundColor: appColors.scafold_background,
       appBar: AppBar(
+        backgroundColor: appColors.headerBackground,
         actions: [
           Icon(Icons.push_pin_outlined),
           SizedBox(
@@ -60,24 +64,26 @@ class _singleNoteScreenState extends State<singleNoteScreen> {
                     border: InputBorder.none,
                     hintText: "Title",
                     hintStyle: TextStyle(
-                        color: Colors.white60,
+                        color: appColors.textformfeild_hints_color,
                         fontSize: 20,
                         fontWeight: FontWeight.bold)),
                 style: TextStyle(
-                    color: Colors.white,
+                    color: appColors.single_notes_widget_title_color,
                     fontSize: 20,
-                    fontWeight: FontWeight.bold)),
+                    fontWeight: FontWeight.bold
+                ),
+            ),
             TextFormField(
                 controller: note_TEcontroller,
                 decoration: InputDecoration(
                     border: InputBorder.none,
                     hintText: "Note",
                     hintStyle: TextStyle(
-                        color: Colors.white60,
+                        color: appColors.textformfeild_hints_color,
                         fontSize: 17,
                         fontWeight: FontWeight.w700)),
                 style: TextStyle(
-                    color: Colors.white60,
+                    color: appColors.single_notes_widget_note_color,
                     fontSize: 17,
                     fontWeight: FontWeight.w700)),
           ],
@@ -94,18 +100,18 @@ class _singleNoteScreenState extends State<singleNoteScreen> {
               Container(
                 child: Icon(
                   Icons.add,
-                  color: Colors.white60,
+                  color: appColors.icon_color,
                   size: 20,
                 ),
                 decoration:
-                    BoxDecoration(border: Border.all(color: Colors.white60)),
+                    BoxDecoration(border: Border.all(color: appColors.border_color)),
               ),
               SizedBox(
                 width: 15,
               ),
               Icon(
                 Icons.color_lens_outlined,
-                color: Colors.white60,
+                color: appColors.icon_color,
                 size: 25,
               ),
               SizedBox(
@@ -113,7 +119,7 @@ class _singleNoteScreenState extends State<singleNoteScreen> {
               ),
               Icon(
                 Icons.legend_toggle,
-                color: Colors.white60,
+                color: appColors.icon_color,
                 size: 25,
               ),
             ],
@@ -123,17 +129,40 @@ class _singleNoteScreenState extends State<singleNoteScreen> {
               Text(
                 "5.34 AM",
                 style: TextStyle(
-                    color: Colors.white60,
+                    color: appColors.icon_color,
                     fontSize: 17,
                     fontWeight: FontWeight.w700),
               ),
               SizedBox(
                 width: 10,
               ),
-              Icon(
-                Icons.more_vert,
-                color: Colors.white60,
-                size: 25,
+              GestureDetector(
+                child: Icon(
+                  Icons.more_vert,
+                  color: appColors.icon_color,
+                  size: 25,
+                ),
+                onTap: () {
+
+                  showModalBottomSheet(
+                    context: context,
+                    backgroundColor: appColors.bottom_sheet_background_color,
+                    builder: (context) {
+                      return  Container(
+                        height: 336,
+                        width: double.infinity,
+                        color: appColors.bottom_sheet_background_color,
+                        child: show_bottom_model_sheet_widget(
+                          id: "no_data",
+                          title: title_TEcontroller.text,
+                          note: note_TEcontroller.text,
+                          user_id: user_id,
+                        ),
+                      );
+
+                    },
+                  );
+                },
               ),
               SizedBox(
                 width: 10,
@@ -141,7 +170,7 @@ class _singleNoteScreenState extends State<singleNoteScreen> {
               GestureDetector(
                 child: Icon(
                   Icons.add_task_outlined,
-                  color: Colors.white60,
+                  color: appColors.icon_color,
                   size: 25,
                 ),
                 onTap: ()  async {

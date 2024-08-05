@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mynoteapp/screens/updateNoteScreen.dart';
+import 'package:mynoteapp/utils/colors.dart';
 
 class singleNoteWidget extends StatelessWidget {
   final String title;
@@ -40,8 +41,8 @@ class singleNoteWidget extends StatelessWidget {
           height: 200,
           width: 200,
           decoration: BoxDecoration(
-            color: Colors.black38,
-            border: Border.all(color: Colors.white12),
+            color: appColors.single_notes_widget_background,
+            border: Border.all(color:appColors.single_notes_widget_border_color),
             borderRadius: BorderRadius.circular(10),
           ),
           padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
@@ -51,13 +52,13 @@ class singleNoteWidget extends StatelessWidget {
               Text(
                 "${title}",
                 style: TextStyle(
-                    color: Colors.white,
+                    color: appColors.single_notes_widget_title_color,
                     fontWeight: FontWeight.w800,
                     fontSize: 18),
               ),
               Text(
                 note,
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: appColors.single_notes_widget_note_color),
               ),
             ],
           ),

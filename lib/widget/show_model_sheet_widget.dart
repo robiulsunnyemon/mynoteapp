@@ -18,39 +18,44 @@ class show_bottom_model_sheet_widget extends StatelessWidget {
       children: [
         ListTile(
           title: GestureDetector(
-            child: Text("Delete",style: TextStyle(color: appColors.snackber_color,),),
+            child: Text("Delete",style: TextStyle(color: appColors.icon_text_color,),),
             onTap: (){
-              note_controler.delete_note(id);
-              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => myHomeScreen(),),);
+              if(id=="no_data"){
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => myHomeScreen(),),);
+              }else{
+                note_controler.delete_note(id);
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => myHomeScreen(),),);
+              }
+
             },
           ),
-          leading: Icon(Icons.delete_outline,color: appColors.snackber_color,),
+          leading: Icon(Icons.delete_outline,color: appColors.icon_color,),
         ),
         ListTile(
           title: GestureDetector(
-              child: Text("Make a copy",style: TextStyle(color: appColors.snackber_color),),
+              child: Text("Make a copy",style: TextStyle(color: appColors.icon_text_color),),
               onTap: (){
                 note_controler.add_note(note_model(title: title!, note: note!, dateTime: DateTime.now(), user_id: user_id,));
                 Navigator.push(context, MaterialPageRoute(builder: (context) => myHomeScreen(),));
               },
           ),
-          leading: Icon(Icons.copy,color: appColors.snackber_color,),
+          leading: Icon(Icons.copy,color: appColors.icon_color,),
         ),
         ListTile(
-          title: Text("Send",style: TextStyle(color: appColors.snackber_color),),
-          leading: Icon(Icons.share,color: appColors.snackber_color,),
+          title: Text("Send",style: TextStyle(color: appColors.icon_text_color),),
+          leading: Icon(Icons.share,color: appColors.icon_color,),
         ),
         ListTile(
-          title: Text("Collaborator",style: TextStyle(color: appColors.snackber_color),),
-          leading: Icon(Icons.person,color: appColors.snackber_color,),
+          title: Text("Collaborator",style: TextStyle(color: appColors.icon_text_color),),
+          leading: Icon(Icons.person,color: appColors.icon_color,),
         ),
         ListTile(
-          title: Text("Labels",style: TextStyle(color: appColors.snackber_color),),
-          leading: Icon(Icons.label,color: appColors.snackber_color,),
+          title: Text("Labels",style: TextStyle(color: appColors.icon_text_color),),
+          leading: Icon(Icons.label,color: appColors.icon_color,),
         ),
         ListTile(
-          title: Text("Helps & feedback",style: TextStyle(color: appColors.snackber_color),),
-          leading: Icon(Icons.help_outline,color: appColors.snackber_color,),
+          title: Text("Helps & feedback",style: TextStyle(color: appColors.icon_text_color),),
+          leading: Icon(Icons.help_outline,color: appColors.icon_color,),
         ),
       ],
 

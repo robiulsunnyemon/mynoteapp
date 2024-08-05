@@ -2,6 +2,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:mynoteapp/utils/colors.dart';
 
 import '../controlers/note_controller.dart';
 import '../firebase_auth/firbase_auth.dart';
@@ -29,14 +30,14 @@ class _myHomeScreenState extends State<myHomeScreen> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      backgroundColor: Colors.white12,
+      backgroundColor: appColors.scafold_background,
       appBar: AppBar(
         title: Text(
           "MY NOTES",
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
-        backgroundColor: Colors.white70,
+        backgroundColor: appColors.headerBackground,
         elevation: 0,
         actions: [
           GestureDetector(
@@ -109,14 +110,14 @@ class _myHomeScreenState extends State<myHomeScreen> {
         ),
       ),
       bottomNavigationBar: Container(
-        color: Colors.black,
+        color: appColors.bottom_navigation_Background,
         padding: EdgeInsets.symmetric(horizontal: 10,vertical: 20),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Icon(
               Icons.check_box_outlined,
-              color: Colors.white60,
+              color: appColors.icon_color,
               size: 25,
             ),
             SizedBox(
@@ -124,7 +125,7 @@ class _myHomeScreenState extends State<myHomeScreen> {
             ),
             Icon(
               Icons.draw,
-              color: Colors.white60,
+              color: appColors.icon_color,
               size: 25,
             ),
             SizedBox(
@@ -132,7 +133,7 @@ class _myHomeScreenState extends State<myHomeScreen> {
             ),
             Icon(
               Icons.mic_none,
-              color: Colors.white60,
+              color: appColors.icon_color,
               size: 25,
             ),
             SizedBox(
@@ -140,14 +141,14 @@ class _myHomeScreenState extends State<myHomeScreen> {
             ),
             Icon(
               Icons.photo_camera_back,
-              color: Colors.white60,
+              color: appColors.icon_color,
               size: 25,
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.white,
+        backgroundColor: appColors.floating_action_button_Backgroundcolor,
         onPressed: () {
           Navigator.push(
               context,
@@ -158,7 +159,7 @@ class _myHomeScreenState extends State<myHomeScreen> {
         child: Icon(
           Icons.add,
           size: 28,
-          color: Colors.black,
+          color: appColors.icon_color,
         ),
       ),
     );
