@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:mynoteapp/firebase_auth/firbase_auth.dart';
-import 'package:mynoteapp/screens/resset_password_screen.dart';
-import 'package:mynoteapp/screens/signup_Screen.dart';
+import 'package:mynoteapp/screens/auth_ui/resset_password_screen.dart';
+import 'package:mynoteapp/screens/auth_ui/signup_Screen.dart';
 
 
 class log_in_screen extends StatefulWidget {

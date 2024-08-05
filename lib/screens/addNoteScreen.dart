@@ -56,37 +56,44 @@ class _singleNoteScreenState extends State<singleNoteScreen> {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),
-        child: Column(
-          children: [
-            TextFormField(
-                controller: title_TEcontroller,
-                decoration: InputDecoration(
-                    border: InputBorder.none,
-                    hintText: "Title",
-                    hintStyle: TextStyle(
-                        color: appColors.textformfeild_hints_color,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold)),
-                style: TextStyle(
-                    color: appColors.single_notes_widget_title_color,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold
-                ),
-            ),
-            TextFormField(
-                controller: note_TEcontroller,
-                decoration: InputDecoration(
-                    border: InputBorder.none,
-                    hintText: "Note",
-                    hintStyle: TextStyle(
-                        color: appColors.textformfeild_hints_color,
-                        fontSize: 17,
-                        fontWeight: FontWeight.w700)),
-                style: TextStyle(
-                    color: appColors.single_notes_widget_note_color,
-                    fontSize: 17,
-                    fontWeight: FontWeight.w700)),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              TextFormField(
+                  controller: title_TEcontroller,
+                  maxLines: 2,
+                  minLines: 1,
+                  decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: "Title",
+                      hintStyle: TextStyle(
+                          color: appColors.textformfeild_hints_color,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
+                  ),
+                  style: TextStyle(
+                      color: appColors.single_notes_widget_title_color,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold
+                  ),
+              ),
+              TextFormField(
+                  controller: note_TEcontroller,
+                  decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: "Note",
+                      hintStyle: TextStyle(
+                          color: appColors.textformfeild_hints_color,
+                          fontSize: 17,
+                          fontWeight: FontWeight.w700)),
+                  maxLines: 50,
+                  minLines: 1,
+                  style: TextStyle(
+                      color: appColors.single_notes_widget_note_color,
+                      fontSize: 17,
+                      fontWeight: FontWeight.w700)),
+            ],
+          ),
         ),
       ),
       floatingActionButton: Row(

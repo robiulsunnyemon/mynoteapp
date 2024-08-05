@@ -61,7 +61,10 @@ class updateNoteScreen extends StatelessWidget {
                     hintStyle: TextStyle(
                         color: appColors.textformfeild_hints_color,
                         fontSize: 20,
-                        fontWeight: FontWeight.bold)),
+                        fontWeight: FontWeight.bold),
+                ),
+                minLines: 1,
+                maxLines: 2,
                 style: TextStyle(
                     color: appColors.single_notes_widget_title_color,
                     fontSize: 20,
@@ -74,7 +77,10 @@ class updateNoteScreen extends StatelessWidget {
                     hintStyle: TextStyle(
                         color: appColors.textformfeild_hints_color,
                         fontSize: 17,
-                        fontWeight: FontWeight.w700)),
+                        fontWeight: FontWeight.w700),
+                ),
+                minLines: 1,
+                maxLines: 50,
                 style: TextStyle(
                     color: appColors.single_notes_widget_note_color,
                     fontSize: 17,

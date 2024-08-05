@@ -38,8 +38,6 @@ class singleNoteWidget extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(5),
         child: Container(
-          height: 200,
-          width: 200,
           decoration: BoxDecoration(
             color: appColors.single_notes_widget_background,
             border: Border.all(color:appColors.single_notes_widget_border_color),
@@ -54,11 +52,18 @@ class singleNoteWidget extends StatelessWidget {
                 style: TextStyle(
                     color: appColors.single_notes_widget_title_color,
                     fontWeight: FontWeight.w800,
-                    fontSize: 18),
+                    fontSize: 18,
+                    overflow: TextOverflow.ellipsis,
+                ),
+                maxLines: 1,
               ),
               Text(
                 note,
-                style: TextStyle(color: appColors.single_notes_widget_note_color),
+                style: TextStyle(
+                    color: appColors.single_notes_widget_note_color,
+                    overflow: TextOverflow.ellipsis,
+                ),
+                maxLines: 5,
               ),
             ],
           ),

@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:mynoteapp/screens/login_Screen.dart';
+import 'package:mynoteapp/screens/auth_ui/login_Screen.dart';
 import 'package:mynoteapp/widget/ui_helper.dart';
 
 import '../screens/homeScreen.dart';

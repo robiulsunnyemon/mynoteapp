@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mynoteapp/screens/homeScreen.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:mynoteapp/screens/login_Screen.dart';
+import 'package:mynoteapp/screens/auth_ui/login_Screen.dart';
 import 'firebase_options.dart';
 import 'screens/user_current_state_check/current_user.dart';
 
